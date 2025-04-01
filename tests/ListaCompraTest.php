@@ -26,13 +26,30 @@ class ListaCompraTest extends TestCase
         self::assertEquals("pan x1", $this->listaCompra->manageListaCompra("añadir pan"));
     }
 
-/*
-Añadir productos
-● Instrucción: añadir <nombre> [cantidad]
-● Si no se indica cantidad, se asume 1.
-● Si el producto ya existe en la lista, se suma la nueva cantidad a la anterior.
-● Ejemplos:
-○ añadir pan → "pan x1"
-○ añadir Pan 2 → "pan x3"
-*/
+    /**
+     * @test
+     */
+    public function givenAñadirInstructionWithExistingItemReturnsItemAndItsNewQuantity()
+    {
+        self::assertEquals("pan x3", $this->listaCompra->manageListaCompra("añadir Pan 2"));
+    }
+
+    /**
+     * @test
+     */
+    public function givenAñadirIntructionWithTwodifferentItemsReturnsItemsAndTheirQuantity()
+    {
+
+    }
+
+
+    /*
+    Añadir productos
+    ● Instrucción: añadir <nombre> [cantidad]
+    ● Si no se indica cantidad, se asume 1.
+    ● Si el producto ya existe en la lista, se suma la nueva cantidad a la anterior.
+    ● Ejemplos:
+    ○ añadir pan → "pan x1"
+    ○ añadir Pan 2 → "pan x3"
+    */
 }

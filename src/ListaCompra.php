@@ -8,10 +8,28 @@ class ListaCompra
     private $listaProductos;
     public function manageListaCompra(string $instruccion): string
     {
-        //$productosActuales ="";
+        //añadir Pan 2
+
         $elements = explode(" ", $instruccion);
         $item = strtolower($elements[1]);
+        if (!empty($this->listaProductos)){
+            echo "Listaa: ".$this->listaProductos[$item]."\n";}
+
         if ($elements[0] == "añadir") {
+
+            if (isset($elements[2])){
+                $quantity = (int) $elements[2];
+
+                if (!empty($this->listaProductos) && str_contains($item,$this->listaProductos)){
+                    $aux = explode("x",$this -> listaProductos[$item]);
+                    //echo "aux[1] -> ".$aux[1];
+                    $initialQuantity = (int) $aux[1];
+                    $this -> listaProductos[$item] ="$item"." "."x"."$quantity+$initialQuantity";
+                }
+                elseif (!str_contains($item,$this->listaProductos)){
+                    $listaProductos[$item] = "$item"." "."x"."$quantity";
+                }
+            }
 
             $this -> listaProductos[$item] ="$item"." "."x1";
         }
