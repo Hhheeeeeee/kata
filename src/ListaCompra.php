@@ -9,11 +9,17 @@ class ListaCompra
     public function manageListaCompra(string $instruccion): string
     {
         //$productosActuales ="";
-        $elem = explode(" ", $instruccion);
-        if ($elem[0] == "añadir") {
-            return "pan x1";
+        $elements = explode(" ", $instruccion);
+        $item = strtolower($elements[1]);
+        if ($elements[0] == "añadir") {
+
+            $this -> listaProductos[$item] ="$item"." "."x1";
         }
-        return $this -> listaProductos;
+
+        foreach ($this -> listaProductos as $key => $value) {
+            return $value;
+        }
+        return "";
     }
 }
 

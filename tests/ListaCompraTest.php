@@ -21,7 +21,7 @@ class ListaCompraTest extends TestCase
     /**
      * @test
      */
-    public function givenAddInstructionWithOneItem()
+    public function givenAñadirInstructionWithOneItemReturnsItemAndItsQuantity()
     {
         self::assertEquals("pan x1", $this->listaCompra->manageListaCompra("añadir pan"));
     }
